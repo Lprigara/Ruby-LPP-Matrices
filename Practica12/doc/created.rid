@@ -1,0 +1,18 @@
+Wed, 11 Dec 2013 18:01:39 +0000
+./spec/matrices_spec.rb	Wed, 11 Dec 2013 17:49:13 +0000
+./spec/dsl_spec.rb	Wed, 11 Dec 2013 17:49:13 +0000
+./spec/fraccion_spec.rb	Wed, 11 Dec 2013 17:49:13 +0000
+./Gemfile	Wed, 11 Dec 2013 17:49:13 +0000
+./salida.txt	Wed, 11 Dec 2013 17:51:03 +0000
+./Consola.rb	Wed, 11 Dec 2013 17:49:13 +0000
+./lib/prac09.rb	Wed, 11 Dec 2013 17:49:13 +0000
+./lib/prac09/matrizdensa.rb	Wed, 11 Dec 2013 17:49:13 +0000
+./lib/prac09/version.rb	Wed, 11 Dec 2013 17:49:13 +0000
+./lib/prac09/fraccion.rb	Wed, 11 Dec 2013 17:49:13 +0000
+./lib/prac09/matriz.rb	Wed, 11 Dec 2013 17:49:13 +0000
+./lib/prac09/dsl.rb	Wed, 11 Dec 2013 17:49:13 +0000
+./lib/prac09/matrizdispersa.rb	Wed, 11 Dec 2013 17:49:13 +0000
+./test/tc_matrices.rb	Wed, 11 Dec 2013 17:49:13 +0000
+./Guardfile	Wed, 11 Dec 2013 17:49:13 +0000
+./Rakefile	Wed, 11 Dec 2013 17:49:13 +0000
+./LICENSE.txt	Wed, 11 Dec 2013 17:49:13 +0000
