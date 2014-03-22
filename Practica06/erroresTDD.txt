@@ -1,0 +1,435 @@
+#################### Primer error ###################
+
+rspec -I. spec/fraccion_spec.rb
+/home/leonor/LPP/practica6/spec/fraccion_spec.rb:1:in `require': no such file to load -- lib/fraccion.rb (LoadError)
+	from /home/leonor/LPP/practica6/spec/fraccion_spec.rb:1
+	from /usr/lib/ruby/vendor_ruby/rspec/core/configuration.rb:386:in `load'
+	from /usr/lib/ruby/vendor_ruby/rspec/core/configuration.rb:386:in `load_spec_files'
+	from /usr/lib/ruby/vendor_ruby/rspec/core/configuration.rb:386:in `map'
+	from /usr/lib/ruby/vendor_ruby/rspec/core/configuration.rb:386:in `load_spec_files'
+	from /usr/lib/ruby/vendor_ruby/rspec/core/command_line.rb:18:in `run'
+	from /usr/lib/ruby/vendor_ruby/rspec/core/runner.rb:55:in `run_in_process'
+	from /usr/lib/ruby/vendor_ruby/rspec/core/runner.rb:46:in `run'
+	from /usr/lib/ruby/vendor_ruby/rspec/core/runner.rb:10:in `autorun'
+	from /usr/bin/rspec:4
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+########### Segundo error <espectativa de clase>##################
+rspec -I. spec/fraccion_spec.rb
+/home/carlos/LPP/practica6/spec/fraccion_spec.rb:3:in `<top (required)>': uninitialized constant Fraccion (NameError)
+        from /var/lib/gems/1.9.1/gems/rspec-core-2.14.6/lib/rspec/core/configuration.rb:896:in `load'
+        from /var/lib/gems/1.9.1/gems/rspec-core-2.14.6/lib/rspec/core/configuration.rb:896:in `block in load_spec_files'
+        from /var/lib/gems/1.9.1/gems/rspec-core-2.14.6/lib/rspec/core/configuration.rb:896:in `each'
+        from /var/lib/gems/1.9.1/gems/rspec-core-2.14.6/lib/rspec/core/configuration.rb:896:in `load_spec_files'
+        from /var/lib/gems/1.9.1/gems/rspec-core-2.14.6/lib/rspec/core/command_line.rb:22:in `run'
+        from /var/lib/gems/1.9.1/gems/rspec-core-2.14.6/lib/rspec/core/runner.rb:80:in `run'
+        from /var/lib/gems/1.9.1/gems/rspec-core-2.14.6/lib/rspec/core/runner.rb:17:in `block in autorun'
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+##########3º- existe numerador y denominador########
+rspec -I. spec/fraccion_spec.rb
+F
+
+Failures:
+
+  1) Fraccion Creacion correcta de fraccion con numerador y denom.
+     Failure/Error: fa = Fraccion.new(1,2)
+     ArgumentError:
+       wrong number of arguments(2 for 0)
+     # ./spec/fraccion_spec.rb:5:in `initialize'
+     # ./spec/fraccion_spec.rb:5:in `new'
+     # ./spec/fraccion_spec.rb:5:in `block (2 levels) in <top (required)>'
+
+Finished in 0.00044 seconds
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:4 # Fraccion Creacion correcta de fraccion con numerador y denom.
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
+
+#################4º las fracciones han de estar simplificadas
+rspec -I. spec/fraccion_spec.rb
+.F
+
+Failures:
+
+  1) Fraccion Fraccion simplificada
+     Failure/Error: fa.numerador.should == 3
+       expected: 3
+            got: 6 (using ==)
+     # ./spec/fraccion_spec.rb:13:in `block (2 levels) in <top (required)>'
+
+Finished in 0.00064 seconds
+2 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:11 # Fraccion Fraccion simplificada
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+#############5º no existe num() y denom()
+rspec -I. spec/fraccion_spec.rb
+..FF
+
+Failures:
+
+  1) Fraccion#el valor del numerador y denominador se obtiene mediante num() y denom() .num() no existe
+     Failure/Error: fa.num() == 1
+     NoMethodError:
+       undefined method `num' for #<Fraccion:0x000000018e4cb0 @numerador=1, @denominador=2>
+     # ./spec/fraccion_spec.rb:24:in `block (3 levels) in <top (required)>'
+
+  2) Fraccion#el valor del numerador y denominador se obtiene mediante num() y denom() .denom() no existe
+     Failure/Error: fa.denom() == 2
+     NoMethodError:
+       undefined method `denom' for #<Fraccion:0x000000018ea958 @numerador=1, @denominador=2>
+     # ./spec/fraccion_spec.rb:28:in `block (3 levels) in <top (required)>'
+
+Finished in 0.0012 seconds
+4 examples, 2 failures
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:22 # Fraccion#el valor del numerador y denominador se obtiene mediante num() y denom() .num() no existe
+rspec ./spec/fraccion_spec.rb:26 # Fraccion#el valor del numerador y denominador se obtiene mediante num() y denom() .denom() no existe
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
+
+#################6º no muestra numerador/denominador, a cambio devuelve el objeto
+rspec -I. spec/fraccion_spec.rb
+....F
+
+Failures:
+
+  1) Fraccion  #Se debe mostrar num/denom  mostrar por pantalla a/b
+     Failure/Error: fa.to_s().should == "1/2"
+       expected: "1/2"
+            got: "#<Fraccion:0x00000000af3908>" (using ==)
+     # ./spec/fraccion_spec.rb:35:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00139 seconds
+5 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:33 # Fraccion  #Se debe mostrar num/denom  mostrar por
+pantalla a/b
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
+
+#############7º no muestra como float
+rspec -I. spec/fraccion_spec.rb
+.....F
+
+Failures:
+
+  1) Fraccion  #Se debe mostrar en formato flotante  .to_float()
+     Failure/Error: fa.to_float().should == 1.5
+     NoMethodError:
+       undefined method `to_float' for 1/2:Fraccion
+     # ./spec/fraccion_spec.rb:42:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00146 seconds
+6 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:40 # Fraccion  #Se debe mostrar en formato flotante  .to_float()
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
+
+#############8º usar == para comparar fracciones
+rspec -I. spec/fraccion_spec.rb
+......F
+
+Failures:
+
+  1) Fraccion  #comparacion con ==
+ comparando
+     Failure/Error: (fa == fb).should be_true
+       expected: true value
+            got: false
+     # ./spec/fraccion_spec.rb:52:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00346 seconds
+7 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:47 # Fraccion  #comparacion con ==
+ comparando
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
+
+############9º método abs no implementado
+rspec -I. spec/fraccion_spec.rb
+.......F
+
+Failures:
+
+  1) Fraccion  #valor absoluto con metodo abs
+     Failure/Error: fa.abs.should == fa
+     NoMethodError:
+       undefined method `abs' for 3/2:Fraccion
+     # ./spec/fraccion_spec.rb:64:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00349 seconds
+8 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:59 # Fraccion  #valor absoluto con metodo abs
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
+
+############10º método recíprocal no implementado
+rspec -I. spec/fraccion_spec.rb
+........F
+     Failure/Error: (fa.reciprocal == fb).should be_true
+Failures:
+       undefined method `reciprocal' for 3/2:Fraccion
+  1) Fraccion  #Reciproco o insersa de una fraccion .recriprocal
+     Failure/Error: (fa.reciprocal == fb).should be_true
+     NoMethodError: seconds
+       undefined method `reciprocal' for 3/2:Fraccion
+     # ./spec/fraccion_spec.rb:76:in `block (3 levels) in <top (required)>'
+Failed examples:
+Finished in 0.00377 seconds
+9 examples, 1 failure
+n .recriprocal
+Failed examples:
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+rspec ./spec/fraccion_spec.rb:72 # Fraccion  #Reciproco o insersa de una fraccion .recriprocal
+rake aborted! default => spec
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+
+############11º método opuesto no implementado
+
+rspec -I. spec/fraccion_spec.rb
+.........F
+
+Failures:
+
+  1) Fraccion  #Opuesto de una fraccion -@
+     Failure/Error: ((-fa) == fa).should be_false
+     NoMethodError:
+       undefined method `-@' for #<Fraccion:0x7fb8894358e8 @denominador=2, @numerador=1>
+     # ./spec/fraccion_spec.rb:86
+
+Finished in 0.00487 seconds
+10 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:82 # Fraccion  #Opuesto de una fraccion -@
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
+
+############12º método suma no implementado
+rspec -I. spec/fraccion_spec.rb
+..........F
+
+Failures:
+
+  1) Fraccion  #Operaciones con fracciones @+@ ->operacion suma
+     Failure/Error: (fa + fb).should == fc
+     NoMethodError:
+       undefined method `+' for 3/2:Fraccion
+     # ./spec/fraccion_spec.rb:92:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00471 seconds
+11 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:87 # Fraccion  #Operaciones con fracciones @+@ ->operacion suma
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
+
+############13º método suma no implementado
+rspec -I. spec/fraccion_spec.rb
+...........F
+
+Failures:
+
+  1) Fraccion  #Operaciones con fracciones @-@ ->operacion resta
+     Failure/Error: (fa - fb).should == fc
+     NoMethodError:
+       undefined method `-' for 2/3:Fraccion
+     # ./spec/fraccion_spec.rb:100:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00466 seconds
+12 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:95 # Fraccion  #Operaciones con fracciones @-@ ->operacion resta
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
+
+###########14º método multiplicacion
+rspec -I. spec/fraccion_spec.rb
+............F
+
+Failures:
+
+  1) Fraccion  #Operaciones con fracciones @*@ ->operacion producto
+     Failure/Error: (fa * fb).should eq(Fraccion.new(2,12))
+     NoMethodError:
+       undefined method `*' for 2/3:Fraccion
+     # ./spec/fraccion_spec.rb:108:in `block (3 levels) in <top (required)>'
+
+Finished in 0.0048 seconds
+13 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:103 # Fraccion  #Operaciones con fracciones @*@ ->operacion producto
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
+
+##########15º método division
+rspec -I. spec/fraccion_spec.rb
+.............F
+
+Failures:
+
+  1) Fraccion  #Operaciones con fracciones @/@ ->operacion division
+     Failure/Error: (fa / fb == fc).should be_true
+     NoMethodError:
+       undefined method `/' for 2/3:Fraccion
+     # ./spec/fraccion_spec.rb:117:in `block (3 levels) in <top (required)>'
+
+Finished in 0.0049 seconds
+14 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:112 # Fraccion  #Operaciones con fracciones @/@ ->operacion division
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
+
+#############16º método modulo
+rspec -I. spec/fraccion_spec.rb
+..............F
+
+Failures:
+
+  1) Fraccion  #Operaciones con fracciones @%@ ->operacion modulo
+     Failure/Error: (fa % fb).to_s.should =="2/3"
+     NoMethodError:
+       undefined method `%' for 2/3:Fraccion
+     # ./spec/fraccion_spec.rb:125:in `block (3 levels) in <top (required)>'
+
+Finished in 0.0054 seconds
+15 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:120 # Fraccion  #Operaciones con fracciones @%@ ->operacion modulo
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
+
+##############17º método menor que
+rspec -I. spec/fraccion_spec.rb
+...............F
+
+Failures:
+
+  1) Fraccion  #Operaciones con fracciones @<@ ->operacion menor que
+     Failure/Error: (fa < fb).should be_true
+     NoMethodError:
+       undefined method `<' for 1/4:Fraccion
+     # ./spec/fraccion_spec.rb:133:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00543 seconds
+16 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:128 # Fraccion  #Operaciones con fracciones @<@ ->operacion menor que
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
+
+############18º metodos de comparacion restantes
+rspec -I. spec/fraccion_spec.rb
+................FFF
+
+Failures:
+
+  1) Fraccion  #Operaciones con fracciones @>@ ->operacion mayor que
+     Failure/Error: (fb > fa).should be_true
+     NoMethodError:
+       undefined method `>' for 5/2:Fraccion
+     # ./spec/fraccion_spec.rb:142:in `block (3 levels) in <top (required)>'
+
+  2) Fraccion  #Operaciones con fracciones @<=@ ->operacion menor o igual que
+     Failure/Error: (fa <= fb).should be_true
+     NoMethodError:
+       undefined method `<=' for 1/4:Fraccion
+     # ./spec/fraccion_spec.rb:151:in `block (3 levels) in <top (required)>'
+
+  3) Fraccion  #Operaciones con fracciones @>=@ ->operacion mayor o igual que
+     Failure/Error: (fb >= fa).should be_true
+     NoMethodError:
+       undefined method `>=' for 5/2:Fraccion
+     # ./spec/fraccion_spec.rb:160:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00595 seconds
+19 examples, 3 failures
+
+Failed examples:
+
+rspec ./spec/fraccion_spec.rb:137 # Fraccion  #Operaciones con fracciones @>@ ->operacion mayor que
+rspec ./spec/fraccion_spec.rb:146 # Fraccion  #Operaciones con fracciones @<=@ ->operacion menor o igual que
+rspec ./spec/fraccion_spec.rb:155 # Fraccion  #Operaciones con fracciones @>=@ ->operacion mayor o igual que
+rake aborted!
+Command failed with status (1): [rspec -I. spec/fraccion_spec.rb...]
+
+Tasks: TOP => default => spec
+(See full trace by running task with --trace)
